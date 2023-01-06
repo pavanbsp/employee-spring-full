@@ -23,6 +23,9 @@ public class EmployeeService {
 		if(StringUtil.isEmpty(p.getName())) {
 			throw new ApiException("name cannot be empty");
 		}
+		if(StringUtil.isEmpty(String.valueOf(p.getAge()))) {
+			throw new ApiException("age cannot be empty");
+		}
 		dao.insert(p);
 	}
 

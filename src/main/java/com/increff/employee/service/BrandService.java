@@ -22,6 +22,9 @@ public class BrandService {
         if(StringUtil.isEmpty(p.getBrand())) {
             throw new ApiException("brand cannot be empty");
         }
+        if(dao.exists(p.getBrand(), p.getCategory()) != null) {
+            throw new ApiException("Brand-category combination must be unique");
+        }
         dao.insert(p);
     }
 
